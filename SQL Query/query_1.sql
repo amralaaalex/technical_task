@@ -6,7 +6,7 @@ SELECT
 FROM 
     Invoices i
 LEFT JOIN
-    Customers c ON i.CustomerID = c.Id
+    Customers c ON i.CustomerId = c.Id
 LEFT JOIN 
     Customers rc ON c.ReferredBy = rc.Id
 ORDER BY 
