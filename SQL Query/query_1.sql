@@ -1,13 +1,13 @@
 SELECT 
-    i.InvoiceID,
+    i.Id,
     i.BillingDate,
-    c.CustomerName AS CustomerName,
-    rc.CustomerName AS ReferringCustomerName
+    c.Name AS CustomerName,
+    rc.Name AS ReferringCustomerName
 FROM 
     Invoices i
 LEFT JOIN
-    Customers c ON i.CustomerID = c.CustomerID
+    Customers c ON i.CustomerID = c.Id
 LEFT JOIN 
-    Customers rc ON c.ReferringCustomerID = rc.CustomerID
+    Customers rc ON c.ReferredBy = rc.Id
 ORDER BY 
     i.BillingDate;
